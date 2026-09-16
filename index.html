@@ -26,9 +26,17 @@ button{cursor:pointer}
 #watch-scene:focus-visible{outline:2px solid #efe7d2;outline-offset:6px}
 button:focus-visible,.cardback:focus-visible{outline:2px solid #efe7d2;outline-offset:6px}
 @media(max-width:800px){.viewer{gap:32px}.viewer .card{width:320px;width:min(320px,100%)}.hero h1{font-size:clamp(24px,6vw,32px)}}
-@media(prefers-reduced-motion:reduce){.hero,.flip-card,.viewer .card,.viewer .info{transition:none;transform:none}.cardback.flipped .flip-card{transform:rotateY(180deg)}}.purchase-inquiry{display:inline-block;background:none;color:#efe7d2;border:1px solid #8d7445;padding:12px 22px;margin:8px;font:13.3333px Arial,sans-serif;text-decoration:none;cursor:pointer}.purchase-inquiry:focus-visible{outline:2px solid #efe7d2;outline-offset:6px}</style></head><body>
-<section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'>THE LOVERS</div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button>🎵 Listen to the Deck</button></section>
-<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><div class='card'>THE LOVERS</div><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p><a id='watch-scene' href='https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p>🎵 Listen to the Deck</p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
+@media(prefers-reduced-motion:reduce){.hero,.flip-card,.viewer .card,.viewer .info{transition:none;transform:none}.cardback.flipped .flip-card{transform:rotateY(180deg)}}.purchase-inquiry{display:inline-block;background:none;color:#efe7d2;border:1px solid #8d7445;padding:12px 22px;margin:8px;font:13.3333px Arial,sans-serif;text-decoration:none;cursor:pointer}.purchase-inquiry:focus-visible{outline:2px solid #efe7d2;outline-offset:6px}
+.audio-text-button{font:inherit;border:0;padding:0;margin:0;text-decoration:underline;text-decoration-color:#8d7445;text-underline-offset:4px}
+#deck-audio{position:fixed;bottom:16px;right:16px;width:min(380px,calc(100vw - 32px));padding:12px;background:#191919;border:1px solid #8d7445;border-radius:14px;z-index:20;box-shadow:0 8px 32px #0008}
+#deck-audio[hidden]{display:none}
+#deck-audio iframe{display:block;width:100%;border:0;border-radius:12px}
+#audio-status{font:13px/1.4 Arial,sans-serif;margin:0 0 8px;color:#c7b48a}
+#deck-audio a{display:inline-block;color:#c7b48a;font:12px Arial,sans-serif;margin-top:8px}
+body.audio-open{padding-bottom:245px}
+</style></head><body>
+<section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'>THE LOVERS</div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button type='button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></section>
+<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><div class='card'>THE LOVERS</div><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p><a id='watch-scene' href='https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
 <section class='details'>
 <div class='box'><h2>About the Project</h2><p>Sounds and Visions transforms iconic musical films into a tarot deck of hand-printed woodcuts.</p></div>
 <div class='box'><h2>Technique</h2><p><b>Woodcut on MDF</b><br>Printed by hand on 200 gsm watercolor paper using oil-based offset ink.</p><p><b>Edition</b><br>30 impressions + AP</p><p>Each print is hand-pulled from the original carved block, signed and numbered by the artist.</p></div>
@@ -166,5 +174,86 @@ button:focus-visible,.cardback:focus-visible{outline:2px solid #efe7d2;outline-o
       revealDeck();
     }
   });
+})();
+</script><aside id='deck-audio' aria-label='Spotify playlist player' hidden><p id='audio-status' role='status' aria-live='polite'>Loading Spotify…</p><div id='spotify-player'></div><a href='https://open.spotify.com/playlist/0JyOE4AmAudrzP9d1QFJE8' target='_blank' rel='noopener noreferrer'>Open playlist in Spotify ↗</a></aside><script>
+(() => {
+  const buttons = [...document.querySelectorAll('[data-deck-audio]')];
+  const panel = document.getElementById('deck-audio');
+  const message = document.getElementById('audio-status');
+  let controller = null, ready = false, wanted = false, playing = false, pending = false;
+  let feedbackTimer;
+  function sync() {
+    buttons.forEach(button => {
+      button.textContent = wanted ? '⏸ Pause the Deck' : '🎵 Listen to the Deck';
+      button.setAttribute('aria-pressed', String(wanted));
+    });
+  }
+  function apply() {
+    if (!ready) return;
+    clearTimeout(feedbackTimer);
+    try {
+      if (wanted) {
+        pending = true;
+        controller.resume();
+        message.textContent = 'Starting Spotify…';
+        feedbackTimer = setTimeout(() => {
+          if (!playing && wanted) {
+            pending = false; wanted = false; sync();
+            message.textContent = 'Press Play in the Spotify player to start listening.';
+          }
+        }, 5000);
+      } else {
+        pending = false;
+        controller.pause();
+        message.textContent = 'Paused';
+      }
+    } catch {
+      pending = false; wanted = false; sync();
+      message.textContent = 'Use the Spotify player below to start listening.';
+    }
+  }
+  buttons.forEach(button => button.addEventListener('click', () => {
+    panel.hidden = false;
+    document.body.classList.add('audio-open');
+    wanted = !wanted;
+    sync();
+    if (ready) apply();
+    else message.textContent = wanted ? 'Loading Spotify…' : 'Playback cancelled.';
+  }));
+  const loadTimer = setTimeout(() => {
+    if (!ready) {
+      wanted = false; sync();
+      message.textContent = 'Spotify could not load. Refresh the page or open the playlist in Spotify.';
+    }
+  }, 20000);
+  window.onSpotifyIframeApiReady = api => {
+    api.createController(document.getElementById('spotify-player'), {
+      uri: 'spotify:playlist:0JyOE4AmAudrzP9d1QFJE8',
+      width: '100%', height: 152
+    }, embed => {
+      controller = embed;
+      embed.addListener('ready', () => {
+        ready = true; clearTimeout(loadTimer);
+        message.textContent = 'Ready to play';
+        if (wanted) apply();
+      });
+      embed.addListener('playback_update', event => {
+        playing = !event.data.isPaused;
+        if (playing || !pending) {
+          wanted = playing; pending = false; sync();
+          message.textContent = playing ? 'Playing from Spotify' : 'Paused';
+          if (playing) clearTimeout(feedbackTimer);
+        }
+      });
+    });
+  };
+  const script = document.createElement('script');
+  script.src = 'https://open.spotify.com/embed/iframe-api/v1';
+  script.async = true;
+  script.onerror = () => {
+    clearTimeout(loadTimer); wanted = false; sync();
+    message.textContent = 'Spotify could not load. Refresh the page or open the playlist in Spotify.';
+  };
+  document.head.appendChild(script);
 })();
 </script></body></html>

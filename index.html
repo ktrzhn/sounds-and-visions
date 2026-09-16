@@ -45,8 +45,8 @@ body.card-zoom-open{overflow:hidden}
 #enlarged-card{display:block;width:100%;height:100%;object-fit:contain}
 #close-card-lightbox{position:absolute;top:12px;right:12px;margin:0;padding:8px 14px;background:#111d;font:26px/1.2 Arial,sans-serif;border-radius:6px;cursor:pointer}
 </style></head><body>
-<section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'><img src='images/Lovers.JPG' alt='VI · THE LOVERS — West Side Story'></div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button type='button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></section>
-<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><button type='button' class='card' id='card-zoom-trigger' aria-label='Enlarge card image' aria-haspopup='dialog' aria-controls='card-lightbox'><img id='card-image' src='images/Lovers.JPG' alt='VI · THE LOVERS — West Side Story' decoding='async'></button><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p><a id='watch-scene' href='https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
+<section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'><img src='images/Justice.JPG' alt='XI · JUSTICE — Jesus Christ Superstar'></div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button type='button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></section>
+<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><button type='button' class='card' id='card-zoom-trigger' aria-label='Enlarge card image' aria-haspopup='dialog' aria-controls='card-lightbox'><img id='card-image' src='images/Justice.JPG' alt='XI · JUSTICE — Jesus Christ Superstar' decoding='async'></button><div class='info'><h2 tabindex='-1'>XI · JUSTICE</h2><h3>Jesus Christ Superstar</h3><p><b>Why this scene?</b><br><span id='card-scene'>Justice restores balance where greed and corruption have taken root. The cleansing of the temple becomes an act of moral clarity rather than vengeance.</span></p><p><a id='watch-scene' href='https://youtu.be/WjR6nHhc6Rg?si=RSeSC8W_4K_M-XWG' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
 <section class='details'>
 <div class='box'><h2>About the Project</h2><p>Sounds and Visions transforms iconic musical films into a tarot deck of hand-printed woodcuts.</p></div>
 <div class='box'><h2>Technique</h2><p><b>Woodcut on MDF</b><br>Printed by hand on 200 gsm watercolor paper using oil-based offset ink.</p><p><b>Edition</b><br>30 impressions + AP</p><p>Each print is hand-pulled from the original carved block, signed and numbered by the artist.</p></div>
@@ -63,13 +63,13 @@ body.card-zoom-open{overflow:hidden}
   // Each entry can be edited independently when the final card texts are ready.
   const cards = [
   {
-    "id": 1,
-    "title": "THE LOVERS",
-    "heading": "VI · THE LOVERS",
-    "film": "West Side Story",
-    "scene": "A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.",
-    "sceneUrl": "https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs",
-    "image": "images/Lovers.JPG"
+    "id": 7,
+    "title": "JUSTICE",
+    "heading": "XI · JUSTICE",
+    "film": "Jesus Christ Superstar",
+    "scene": "Justice restores balance where greed and corruption have taken root. The cleansing of the temple becomes an act of moral clarity rather than vengeance.",
+    "sceneUrl": "https://youtu.be/WjR6nHhc6Rg?si=RSeSC8W_4K_M-XWG",
+    "image": "images/Justice.JPG"
   },
   {
     "id": 2,
@@ -117,13 +117,13 @@ body.card-zoom-open{overflow:hidden}
     "image": "images/Tower.JPG"
   },
   {
-    "id": 7,
-    "title": "JUSTICE",
-    "heading": "XI · JUSTICE",
-    "film": "Jesus Christ Superstar",
-    "scene": "Justice restores balance where greed and corruption have taken root. The cleansing of the temple becomes an act of moral clarity rather than vengeance.",
-    "sceneUrl": "https://youtu.be/WjR6nHhc6Rg?si=RSeSC8W_4K_M-XWG",
-    "image": "images/Justice.JPG"
+    "id": 1,
+    "title": "THE LOVERS",
+    "heading": "VI · THE LOVERS",
+    "film": "West Side Story",
+    "scene": "A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.",
+    "sceneUrl": "https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs",
+    "image": "images/Lovers.JPG"
   },
   {
     "id": 8,

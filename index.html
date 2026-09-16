@@ -21,11 +21,14 @@ body{overflow-x:hidden}
 .viewer .info{opacity:0;transform:translateX(40px);transition:opacity .7s ease .12s,transform .7s ease .12s}
 .viewer-section.is-visible .card,.viewer-section.is-visible .info{opacity:1;transform:none}
 button{cursor:pointer}
+#watch-scene{color:inherit;text-decoration:underline;text-decoration-color:#8d7445;text-underline-offset:4px}
+#watch-scene:hover{color:#c7b48a}
+#watch-scene:focus-visible{outline:2px solid #efe7d2;outline-offset:6px}
 button:focus-visible,.cardback:focus-visible{outline:2px solid #efe7d2;outline-offset:6px}
 @media(max-width:800px){.viewer{gap:32px}.viewer .card{width:320px;width:min(320px,100%)}.hero h1{font-size:clamp(24px,6vw,32px)}}
 @media(prefers-reduced-motion:reduce){.hero,.flip-card,.viewer .card,.viewer .info{transition:none;transform:none}.cardback.flipped .flip-card{transform:rotateY(180deg)}}</style></head><body>
 <section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'>THE LOVERS</div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button>🎵 Listen to the Deck</button></section>
-<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><div class='card'>THE LOVERS</div><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p>🎬 Watch the scene</p><p>🎵 Listen on Spotify</p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
+<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><div class='card'>THE LOVERS</div><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p><a id='watch-scene' href='https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p>🎵 Listen on Spotify</p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
 <section class='details'>
 <div class='box'><h2>About the Project</h2><p>Sounds and Visions transforms iconic musical films into a tarot deck of hand-printed woodcuts.</p></div>
 <div class='box'><h2>Technique</h2><p><b>Woodcut on MDF</b><br>Printed by hand on Hahnemühle 300 gsm paper using oil-based relief ink.</p><p><b>Edition</b><br>30 impressions + AP</p><p>Each print is hand-pulled from the original carved block, signed and numbered by the artist.</p></div>
@@ -46,56 +49,64 @@ button:focus-visible,.cardback:focus-visible{outline:2px solid #efe7d2;outline-o
     "title": "THE LOVERS",
     "heading": "VI · THE LOVERS",
     "film": "West Side Story",
-    "scene": "A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes."
+    "scene": "A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.",
+    "sceneUrl": "https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs"
   },
   {
     "id": 2,
     "title": "STRENGTH",
     "heading": "VIII · STRENGTH",
     "film": "Cabaret",
-    "scene": "On stage, Sally Bowles appears fearless, dazzling and completely in control. Yet true strength is tested beyond the spotlight, where confidence becomes vulnerability and performance gives way to reality."
+    "scene": "On stage, Sally Bowles appears fearless, dazzling and completely in control. Yet true strength is tested beyond the spotlight, where confidence becomes vulnerability and performance gives way to reality.",
+    "sceneUrl": "https://youtu.be/DgjOedirhcQ?si=HnFbsjNzwUt7m4h-"
   },
   {
     "id": 3,
     "title": "THE MOON",
     "heading": "XVIII · THE MOON",
     "film": "Tommy",
-    "scene": "Lost in illusion, Tommy mistakes escape for freedom and ecstasy for truth. The Moon reveals a world where desire, fear and fantasy blur into one uncertain reality."
+    "scene": "Lost in illusion, Tommy mistakes escape for freedom and ecstasy for truth. The Moon reveals a world where desire, fear and fantasy blur into one uncertain reality.",
+    "sceneUrl": "https://youtu.be/OBN7nG8RDlw?si=ionyEnQG7gb98xUS"
   },
   {
     "id": 4,
     "title": "THE HERMIT",
     "heading": "IX · THE HERMIT",
     "film": "Pink Floyd – The Wall",
-    "scene": "Choosing isolation over uncertainty, Pink retreats into a world that feels safe because it is entirely his own. The Hermit reminds us that solitude can bring wisdom—but also become a prison."
+    "scene": "Choosing isolation over uncertainty, Pink retreats into a world that feels safe because it is entirely his own. The Hermit reminds us that solitude can bring wisdom—but also become a prison.",
+    "sceneUrl": "https://youtu.be/oIZUJ4Msv7U?si=bawsFNidNV9EjY8h"
   },
   {
     "id": 5,
     "title": "DEATH",
     "heading": "XIII · DEATH",
     "film": "Velvet Goldmine",
-    "scene": "Death is not an ending but a transformation. As one identity fades, another is born, revealing that reinvention often demands leaving the past behind."
+    "scene": "Death is not an ending but a transformation. As one identity fades, another is born, revealing that reinvention often demands leaving the past behind.",
+    "sceneUrl": "https://youtu.be/Ge7RKvi2Cp0?si=hevXIGZtOXjVF3Fd"
   },
   {
     "id": 6,
     "title": "THE TOWER",
     "heading": "XVI · THE TOWER",
     "film": "The Phantom of the Opera",
-    "scene": "The collapse of illusion is sudden and irreversible. In a single moment, hidden truths shatter the fragile order that once held everything together."
+    "scene": "The collapse of illusion is sudden and irreversible. In a single moment, hidden truths shatter the fragile order that once held everything together.",
+    "sceneUrl": "https://youtu.be/9_gkO_ZWHCE?si=ZWnfROqHcPQv-Hvt"
   },
   {
     "id": 7,
     "title": "JUSTICE",
     "heading": "XI · JUSTICE",
     "film": "Jesus Christ Superstar",
-    "scene": "Justice restores balance where greed and corruption have taken root. The cleansing of the temple becomes an act of moral clarity rather than vengeance."
+    "scene": "Justice restores balance where greed and corruption have taken root. The cleansing of the temple becomes an act of moral clarity rather than vengeance.",
+    "sceneUrl": "https://youtu.be/WjR6nHhc6Rg?si=RSeSC8W_4K_M-XWG"
   },
   {
     "id": 8,
     "title": "WHEEL OF FORTUNE",
     "heading": "X · WHEEL OF FORTUNE",
     "film": "Sweet Charity",
-    "scene": "A single chance can lift an ordinary evening into a dream. The Wheel of Fortune reminds us that destiny often turns without warning, opening doors we never expected to find."
+    "scene": "A single chance can lift an ordinary evening into a dream. The Wheel of Fortune reminds us that destiny often turns without warning, opening doors we never expected to find.",
+    "sceneUrl": "https://youtu.be/DSSlWfOCgLw?si=H4eylLGxNzZT92j-"
   }
 ];
   let currentCard = 0;
@@ -104,6 +115,7 @@ button:focus-visible,.cardback:focus-visible{outline:2px solid #efe7d2;outline-o
   const cardFilm = viewer.querySelector('.info h3');
   const cardScene = document.getElementById('card-scene');
   const counter = document.getElementById('card-counter');
+  const watchScene = document.getElementById('watch-scene');
 
   function renderCard() {
     const selected = cards[currentCard];
@@ -112,6 +124,7 @@ button:focus-visible,.cardback:focus-visible{outline:2px solid #efe7d2;outline-o
     cardHeading.textContent = selected.heading;
     cardFilm.textContent = selected.film;
     cardScene.textContent = selected.scene;
+    watchScene.href = selected.sceneUrl;
     counter.textContent = (currentCard + 1) + ' / ' + cards.length;
     viewer.dataset.cardId = selected.id;
   }

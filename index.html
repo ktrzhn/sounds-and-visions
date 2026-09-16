@@ -34,9 +34,10 @@ button:focus-visible,.cardback:focus-visible{outline:2px solid #efe7d2;outline-o
 #audio-status{font:13px/1.4 Arial,sans-serif;margin:0 0 8px;color:#c7b48a}
 #deck-audio a{display:inline-block;color:#c7b48a;font:12px Arial,sans-serif;margin-top:8px}
 body.audio-open{padding-bottom:245px}
+.viewer .card{height:auto;align-self:start;display:block}.viewer .card img{display:block;width:100%;height:auto}.face.front img{display:block;width:100%;height:100%;object-fit:contain;border-radius:12px}
 </style></head><body>
-<section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'>THE LOVERS</div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button type='button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></section>
-<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><div class='card'>THE LOVERS</div><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p><a id='watch-scene' href='https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
+<section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'><img src='images/Lovers.JPG' alt='VI · THE LOVERS — West Side Story'></div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button type='button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></section>
+<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><div class='card'><img id='card-image' src='images/Lovers.JPG' alt='VI · THE LOVERS — West Side Story' decoding='async'></div><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p><a id='watch-scene' href='https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
 <section class='details'>
 <div class='box'><h2>About the Project</h2><p>Sounds and Visions transforms iconic musical films into a tarot deck of hand-printed woodcuts.</p></div>
 <div class='box'><h2>Technique</h2><p><b>Woodcut on MDF</b><br>Printed by hand on 200 gsm watercolor paper using oil-based offset ink.</p><p><b>Edition</b><br>30 impressions + AP</p><p>Each print is hand-pulled from the original carved block, signed and numbered by the artist.</p></div>
@@ -58,7 +59,8 @@ body.audio-open{padding-bottom:245px}
     "heading": "VI · THE LOVERS",
     "film": "West Side Story",
     "scene": "A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.",
-    "sceneUrl": "https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs"
+    "sceneUrl": "https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs",
+    "image": "images/Lovers.JPG"
   },
   {
     "id": 2,
@@ -66,7 +68,8 @@ body.audio-open{padding-bottom:245px}
     "heading": "VIII · STRENGTH",
     "film": "Cabaret",
     "scene": "On stage, Sally Bowles appears fearless, dazzling and completely in control. Yet true strength is tested beyond the spotlight, where confidence becomes vulnerability and performance gives way to reality.",
-    "sceneUrl": "https://youtu.be/DgjOedirhcQ?si=HnFbsjNzwUt7m4h-"
+    "sceneUrl": "https://youtu.be/DgjOedirhcQ?si=HnFbsjNzwUt7m4h-",
+    "image": "images/Strength.JPG"
   },
   {
     "id": 3,
@@ -74,7 +77,8 @@ body.audio-open{padding-bottom:245px}
     "heading": "XVIII · THE MOON",
     "film": "Tommy",
     "scene": "Lost in illusion, Tommy mistakes escape for freedom and ecstasy for truth. The Moon reveals a world where desire, fear and fantasy blur into one uncertain reality.",
-    "sceneUrl": "https://youtu.be/OBN7nG8RDlw?si=ionyEnQG7gb98xUS"
+    "sceneUrl": "https://youtu.be/OBN7nG8RDlw?si=ionyEnQG7gb98xUS",
+    "image": "images/Moon.JPG"
   },
   {
     "id": 4,
@@ -82,7 +86,8 @@ body.audio-open{padding-bottom:245px}
     "heading": "IX · THE HERMIT",
     "film": "Pink Floyd – The Wall",
     "scene": "Choosing isolation over uncertainty, Pink retreats into a world that feels safe because it is entirely his own. The Hermit reminds us that solitude can bring wisdom—but also become a prison.",
-    "sceneUrl": "https://youtu.be/oIZUJ4Msv7U?si=bawsFNidNV9EjY8h"
+    "sceneUrl": "https://youtu.be/oIZUJ4Msv7U?si=bawsFNidNV9EjY8h",
+    "image": "images/Hermit.JPG"
   },
   {
     "id": 5,
@@ -90,7 +95,8 @@ body.audio-open{padding-bottom:245px}
     "heading": "XIII · DEATH",
     "film": "Velvet Goldmine",
     "scene": "Death is not an ending but a transformation. As one identity fades, another is born, revealing that reinvention often demands leaving the past behind.",
-    "sceneUrl": "https://youtu.be/Ge7RKvi2Cp0?si=hevXIGZtOXjVF3Fd"
+    "sceneUrl": "https://youtu.be/Ge7RKvi2Cp0?si=hevXIGZtOXjVF3Fd",
+    "image": "images/Death.JPG"
   },
   {
     "id": 6,
@@ -98,7 +104,8 @@ body.audio-open{padding-bottom:245px}
     "heading": "XVI · THE TOWER",
     "film": "The Phantom of the Opera",
     "scene": "The collapse of illusion is sudden and irreversible. In a single moment, hidden truths shatter the fragile order that once held everything together.",
-    "sceneUrl": "https://youtu.be/9_gkO_ZWHCE?si=ZWnfROqHcPQv-Hvt"
+    "sceneUrl": "https://youtu.be/9_gkO_ZWHCE?si=ZWnfROqHcPQv-Hvt",
+    "image": "images/Tower.JPG"
   },
   {
     "id": 7,
@@ -106,7 +113,8 @@ body.audio-open{padding-bottom:245px}
     "heading": "XI · JUSTICE",
     "film": "Jesus Christ Superstar",
     "scene": "Justice restores balance where greed and corruption have taken root. The cleansing of the temple becomes an act of moral clarity rather than vengeance.",
-    "sceneUrl": "https://youtu.be/WjR6nHhc6Rg?si=RSeSC8W_4K_M-XWG"
+    "sceneUrl": "https://youtu.be/WjR6nHhc6Rg?si=RSeSC8W_4K_M-XWG",
+    "image": "images/Justice.JPG"
   },
   {
     "id": 8,
@@ -114,11 +122,12 @@ body.audio-open{padding-bottom:245px}
     "heading": "X · WHEEL OF FORTUNE",
     "film": "Sweet Charity",
     "scene": "A single chance can lift an ordinary evening into a dream. The Wheel of Fortune reminds us that destiny often turns without warning, opening doors we never expected to find.",
-    "sceneUrl": "https://youtu.be/DSSlWfOCgLw?si=H4eylLGxNzZT92j-"
+    "sceneUrl": "https://youtu.be/DSSlWfOCgLw?si=H4eylLGxNzZT92j-",
+    "image": "images/Fortune.JPG"
   }
 ];
   let currentCard = 0;
-  const cardTitle = viewer.querySelector('.card');
+  const cardImage = document.getElementById('card-image');
   const cardHeading = viewer.querySelector('.info h2');
   const cardFilm = viewer.querySelector('.info h3');
   const cardScene = document.getElementById('card-scene');
@@ -127,8 +136,8 @@ body.audio-open{padding-bottom:245px}
 
   function renderCard() {
     const selected = cards[currentCard];
-    cardTitle.textContent = selected.title;
-    cardTitle.setAttribute('aria-label', selected.title + ', card ' + (currentCard + 1) + ' of ' + cards.length);
+    cardImage.src = selected.image;
+    cardImage.alt = selected.heading + ' — ' + selected.film;
     cardHeading.textContent = selected.heading;
     cardFilm.textContent = selected.film;
     cardScene.textContent = selected.scene;

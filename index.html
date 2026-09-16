@@ -35,9 +35,18 @@ button:focus-visible,.cardback:focus-visible{outline:2px solid #efe7d2;outline-o
 #deck-audio a{display:inline-block;color:#c7b48a;font:12px Arial,sans-serif;margin-top:8px}
 body.audio-open{padding-bottom:245px}
 .viewer .card{height:auto;align-self:start;display:block}.viewer .card img{display:block;width:100%;height:auto}.face.front img{display:block;width:100%;height:100%;object-fit:contain;border-radius:12px}
+
+#card-zoom-trigger{padding:0;margin:0;cursor:zoom-in}
+@media(max-width:800px){#card-zoom-trigger{margin-inline:auto}}
+body.card-zoom-open{overflow:hidden}
+#card-lightbox{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;margin:0;padding:20px;border:0;background:rgba(10,10,10,.97);color:#efe7d2;cursor:zoom-out}
+#card-lightbox[open]{display:flex;align-items:center;justify-content:center}
+#card-lightbox::backdrop{background:#111}
+#enlarged-card{display:block;width:100%;height:100%;object-fit:contain}
+#close-card-lightbox{position:absolute;top:12px;right:12px;margin:0;padding:8px 14px;background:#111d;font:26px/1.2 Arial,sans-serif;border-radius:6px;cursor:pointer}
 </style></head><body>
 <section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'><img src='images/Lovers.JPG' alt='VI · THE LOVERS — West Side Story'></div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button type='button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></section>
-<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><div class='card'><img id='card-image' src='images/Lovers.JPG' alt='VI · THE LOVERS — West Side Story' decoding='async'></div><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p><a id='watch-scene' href='https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
+<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><button type='button' class='card' id='card-zoom-trigger' aria-label='Enlarge card image' aria-haspopup='dialog' aria-controls='card-lightbox'><img id='card-image' src='images/Lovers.JPG' alt='VI · THE LOVERS — West Side Story' decoding='async'></button><div class='info'><h2 tabindex='-1'>VI · THE LOVERS</h2><h3>West Side Story</h3><p><b>Why this scene?</b><br><span id='card-scene'>A love story suspended between hope and inevitable tragedy. The staircase becomes a metaphor for impossible love, emotional distance and the fragile moment before everything changes.</span></p><p><a id='watch-scene' href='https://youtu.be/Bv6aTZCCWPk?si=3n7Sj9trrcyD2DZs' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
 <section class='details'>
 <div class='box'><h2>About the Project</h2><p>Sounds and Visions transforms iconic musical films into a tarot deck of hand-printed woodcuts.</p></div>
 <div class='box'><h2>Technique</h2><p><b>Woodcut on MDF</b><br>Printed by hand on 200 gsm watercolor paper using oil-based offset ink.</p><p><b>Edition</b><br>30 impressions + AP</p><p>Each print is hand-pulled from the original carved block, signed and numbered by the artist.</p></div>
@@ -264,5 +273,29 @@ body.audio-open{padding-bottom:245px}
     message.textContent = 'Spotify could not load. Refresh the page or open the playlist in Spotify.';
   };
   document.head.appendChild(script);
+})();
+</script><dialog id='card-lightbox' aria-label='Enlarged card image'><img id='enlarged-card' alt=''><button type='button' id='close-card-lightbox' aria-label='Close enlarged image'>×</button></dialog><script>
+(() => {
+  const preview = document.getElementById('card-image');
+  const trigger = document.getElementById('card-zoom-trigger');
+  const dialog = document.getElementById('card-lightbox');
+  const enlarged = document.getElementById('enlarged-card');
+  const close = document.getElementById('close-card-lightbox');
+  let scrollPosition = 0;
+  trigger.addEventListener('click', () => {
+    if (dialog.open) return;
+    enlarged.src = preview.currentSrc || preview.src;
+    enlarged.alt = preview.alt;
+    scrollPosition = window.scrollY;
+    dialog.showModal();
+    document.body.classList.add('card-zoom-open');
+    close.focus({preventScroll:true});
+  });
+  dialog.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('card-zoom-open');
+    trigger.focus({preventScroll:true});
+    window.scrollTo({top:scrollPosition,behavior:'instant'});
+  });
 })();
 </script></body></html>

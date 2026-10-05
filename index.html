@@ -49,10 +49,13 @@ body.card-zoom-open{overflow:hidden}
 #deck-logo[hidden]{display:none}
 body.deck-revealed .viewer-section{padding-top:112px;scroll-margin-top:0}
 @media(max-width:800px){#deck-logo{top:12px;right:16px;width:78px;height:78px}body.deck-revealed .viewer-section{padding-top:88px}}
+#card-image[hidden],#card-placeholder[hidden]{display:none}
+#card-placeholder{display:flex;align-items:center;justify-content:center;aspect-ratio:320/520;padding:24px;font:24px Georgia,serif;color:#efe7d2}
+#card-zoom-trigger:disabled{cursor:default;opacity:1}
 </style></head><body>
 <img id='deck-logo' src='images/logo.png' alt='Sounds and Visions' hidden>
 <section class='hero'><h1>SOUNDS AND VISIONS</h1><p><em>A Tarot Guide to Music Universes</em></p><div class='cardback' role='button' tabindex='0' aria-label='Reveal the Deck' aria-controls='deck-viewer'><div class='flip-card'><div class='face back'><img src='images/back.png' alt='Sounds and Visions tarot card back' draggable='false'></div><div class='face front'><img src='images/Justice.JPG' alt='XI · JUSTICE — Jesus Christ Superstar'></div></div></div><button id='reveal' aria-controls='deck-viewer'>Reveal the Deck</button><button type='button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></section>
-<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><button type='button' class='card' id='card-zoom-trigger' aria-label='Enlarge card image' aria-haspopup='dialog' aria-controls='card-lightbox'><img id='card-image' src='images/Justice.JPG' alt='XI · JUSTICE — Jesus Christ Superstar' decoding='async'></button><div class='info'><h2 tabindex='-1'>XI · JUSTICE</h2><h3>Jesus Christ Superstar</h3><p><b>Why this scene?</b><br><span id='card-scene'>Justice restores balance where greed and corruption have taken root. The cleansing of the temple becomes an act of moral clarity rather than vengeance.</span></p><p><a id='watch-scene' href='https://youtu.be/WjR6nHhc6Rg?si=RSeSC8W_4K_M-XWG' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 8</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
+<section class='viewer-section' id='deck-viewer' hidden><div class='viewer'><button type='button' class='card' id='card-zoom-trigger' aria-label='Enlarge card image' aria-haspopup='dialog' aria-controls='card-lightbox'><img id='card-image' src='images/Justice.JPG' alt='XI · JUSTICE — Jesus Christ Superstar' decoding='async'><span id='card-placeholder' hidden></span></button><div class='info'><h2 tabindex='-1'>XI · JUSTICE</h2><h3>Jesus Christ Superstar</h3><p><b>Why this scene?</b><br><span id='card-scene'>Justice restores balance where greed and corruption have taken root. The cleansing of the temple becomes an act of moral clarity rather than vengeance.</span></p><p><a id='watch-scene' href='https://youtu.be/WjR6nHhc6Rg?si=RSeSC8W_4K_M-XWG' target='_blank' rel='noopener noreferrer'>🎬 Watch the scene</a></p><p><button type='button' class='audio-text-button' data-deck-audio aria-controls='deck-audio' aria-pressed='false'>🎵 Listen to the Deck</button></p><div class='nav' aria-label='Card navigation'><button id='previous-card' type='button'>← Previous</button><span id='card-counter' role='status' aria-live='polite' aria-atomic='true'>1 / 9</span><button id='next-card' type='button'>Next →</button></div></div></div></section>
 <section class='details'>
 <div class='box'><h2>About the Project</h2><p>Sounds and Visions transforms iconic musical films into a tarot deck of hand-printed woodcuts.</p></div>
 <div class='box'><h2>Technique</h2><p><b>Woodcut on MDF</b><br>Printed by hand on 200 gsm watercolor paper using oil-based offset ink.</p><p><b>Edition</b><br>30 impressions + AP</p><p>Each print is hand-pulled from the original carved block, signed and numbered by the artist.</p></div>
@@ -139,6 +142,15 @@ body.deck-revealed .viewer-section{padding-top:112px;scroll-margin-top:0}
     "scene": "A single chance can lift an ordinary evening into a dream. The Wheel of Fortune reminds us that destiny often turns without warning, opening doors we never expected to find.",
     "sceneUrl": "https://youtu.be/DSSlWfOCgLw?si=H4eylLGxNzZT92j-",
     "image": "images/Fortune.JPG"
+  },
+  {
+    "id": 9,
+    "title": "THE DEVIL",
+    "heading": "XV · THE DEVIL",
+    "film": "Rocky Horror Picture Show",
+    "scene": "Dr. Frank-N-Furter rules his stage with irresistible charisma, tempting others to abandon convention and embrace their hidden desires. Here, the Devil is not evil itself, but the seductive freedom to become someone entirely new.",
+    "sceneUrl": "https://www.youtube.com/watch?v=e8xGVnLales&list=RDe8xGVnLales&start_radio=1",
+    "image": null
   }
 ];
   let currentCard = 0;
@@ -151,7 +163,16 @@ body.deck-revealed .viewer-section{padding-top:112px;scroll-margin-top:0}
 
   function renderCard() {
     const selected = cards[currentCard];
-    cardImage.src = selected.image;
+    const hasImage = Boolean(selected.image);
+    cardImage.hidden = !hasImage;
+    if (hasImage) cardImage.src = selected.image;
+    else cardImage.removeAttribute('src');
+    const placeholder = document.getElementById('card-placeholder');
+    placeholder.hidden = hasImage;
+    placeholder.textContent = selected.heading;
+    const zoomTrigger = document.getElementById('card-zoom-trigger');
+    zoomTrigger.disabled = !hasImage;
+    zoomTrigger.setAttribute('aria-label', hasImage ? 'Enlarge card image' : selected.heading);
     cardImage.alt = selected.heading + ' — ' + selected.film;
     cardHeading.textContent = selected.heading;
     cardFilm.textContent = selected.film;
@@ -291,7 +312,7 @@ body.deck-revealed .viewer-section{padding-top:112px;scroll-margin-top:0}
   const close = document.getElementById('close-card-lightbox');
   let scrollPosition = 0;
   trigger.addEventListener('click', () => {
-    if (dialog.open) return;
+    if (dialog.open || preview.hidden || !preview.getAttribute('src')) return;
     enlarged.src = preview.currentSrc || preview.src;
     enlarged.alt = preview.alt;
     scrollPosition = window.scrollY;
